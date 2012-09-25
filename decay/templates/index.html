@@ -20,31 +20,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae dui sed
 {% endif %}
 
 <section id="content" class="body">
-{% if articles %}
-     <div class="news">
-     <h2><a href="{{ SITE_URL }}/category/news.html">News</a></h2>
-     {% for article in articles[:3] %}{% if article.category == 'News' %}
-         <article>
-             <h3 class="summary-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>{% if article.author and not article.author == AUTHOR %} by <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>{% endif %}</h3>
-             <abbr class="published" title="{{ article.date.isoformat() }}">{{ article.date.strftime("%a %d. %B") }}</abbr>
-             {{ article.summary }}
-         </article>
-     {% endif %}{% endfor %}
-     </div><!-- /.blogroll -->
+{% for category, cat_articles in categories %}
+{% if category.name in ["News", "Media"] %}
+<div id="{{ category.name.lower() }}" class="{{ category.name.lower() }}">
+<h2><a href="{{ category.url }}">{{ category.name }}</a></h2>
+{% for article in cat_articles[:3] %}
+    <article>
+        <h3 class="summary-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>{% if article.author and not article.author == AUTHOR %} by <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>{% endif %}</h3>
+        <abbr class="published" title="{{ article.date.isoformat() }}">{{ article.date.strftime("%a %d. %B") }}</abbr>
+        {{ article.summary }}
+    </article>
+{% endfor %}
+</div>
 {% endif %}
-
-{% if articles %}
-     <div class="items">
-     <h2><a href="{{ SITE_URL }}/category/media.html">Media</a></h2>
-     {% for article in articles[:3] %}{% if article.category == 'Media' %}
-         <article>
-             <h3 class="summary-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>{% if article.author and not article.author == AUTHOR %} by <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>{% endif %}</h3>
-             <abbr class="published" title="{{ article.date.isoformat() }}">{{ article.date.strftime("%a %d. %B") }}</abbr>
-             {{ article.summary }}
-         </article>
-     {% endif %}{% endfor %}
-     </div><!-- /.blogroll -->
-{% endif %}
+{% endfor %}
 </section>
 
 {% endblock %}
