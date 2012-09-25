@@ -21,7 +21,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae dui sed
 
 <section id="content" class="body">
 {% for category, cat_articles in categories %}
-{% if category.name in ["News", "Media"] %}
+{% if category.name in ["News", "Media"] and cat_articles %}
 <div id="{{ category.name.lower() }}" class="{{ category.name.lower() }}">
 <h2><a href="{{ category.url }}">{{ category.name }}</a></h2>
 {% for article in cat_articles[:3] %}
