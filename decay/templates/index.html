@@ -1,33 +1,40 @@
 {% extends "base.html" %}
 {% block title %}DECAY{% endblock %}
 {% block nav %}
-<a href="{{ SITEURL }}"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:920px;height:420px;"></a>
+<a id="topbar" href="{{ SITEURL }}"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:920px;height:420px;"></a>
 {% endblock %}
 {% block content %}
 <section id="content" class="body">
-<iframe src="http://player.vimeo.com/video/16929731?title=0&amp;byline=0&amp;portrait=0&amp;color=aaaa33" style="margin-bottom:2em;" width="880" height="495"></iframe>
+<iframe src="http://player.vimeo.com/video/16929731?title=0&amp;byline=0&amp;portrait=0&amp;color=aaaa33"></iframe>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae dui sed velit placerat fringilla ut id lorem. Nunc euismod dictum pulvinar. Integer sollicitudin lectus eget dui tincidunt sagittis at at est. Curabitur tincidunt neque non augue venenatis tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed blandit elementum tellus sit amet imperdiet. Maecenas at mi vel urna faucibus rutrum nec vitae lectus.
 
 </section>
 
 {% if SOCIAL %}
-<section id="extras" class="body">
+<section id="links" class="body">
 {% for name, link in SOCIAL %}
-<div id="{{ name }}" class="link" style="float:left;width:460px;font-size:2em;"><h1><a href="{{ link }}" style="text-align: center; margin-left: auto; margin-right:auto;">{{ name.upper() }}</a></h1></div>
+<div id="{{ name }}" class="link"><h1><a href="{{ link }}">{{ name.upper() }}</a></h1></div>
 {% endfor %}
 </section>
 {% endif %}
 
-<section id="content" class="body">
+<section id="feeds" class="body">
 {% for category, cat_articles in categories %}
 {% if category.name in ["News", "Media"] and cat_articles %}
 <div id="{{ category.name.lower() }}" class="{{ category.name.lower() }}">
 <h2><a href="{{ category.url }}">{{ category.name }}</a></h2>
 {% for article in cat_articles[:3] %}
     <article>
-        <h3 class="summary-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>{% if article.author and not article.author == AUTHOR %} by <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>{% endif %}</h3>
-        <abbr class="published" title="{{ article.date.isoformat() }}">{{ article.date.strftime("%a %d. %B") }}</abbr>
+        <h3 class="summary-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+        <div class="post-info">
+            {% if article.author and not article.author == AUTHOR %}
+            <address class="vcard author">
+            By <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+            </address>
+            {% endif %}
+            <abbr class="published" title="{{ article.date.isoformat() }}">{{ article.date.strftime("%a %d. %B") }}</abbr>
+        </div>
         {{ article.summary }}
     </article>
 {% endfor %}

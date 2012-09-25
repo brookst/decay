@@ -38,7 +38,7 @@
 <body id="index" class="home">
         <header id="banner" class="body">
 	{% block nav %}
-                <h1><a href="{{ SITEURL }}"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:920px;height:420px;"></a></h1>
+                <a id="topbar" href="{{ SITEURL }}"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:920px;height:420px;"></a>
                 <nav><ul>
                 {% for title, link in MENUITEMS %}
                     <li {% if page %}{% if title == "Main" %}{% if page.title == "skoorb" %}class="active"{% endif %}{% endif %}{% endif %}><a href="{{ link }}">{{ title }}</a></li>
