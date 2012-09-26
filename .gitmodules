@@ -1,0 +1,3 @@
+[submodule "content"]
+	path = content
+	url = /home/brooks/repos/decay-content.git
