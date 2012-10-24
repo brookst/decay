@@ -462,6 +462,7 @@ credits {
 #feeds div a {text-decoration: none;}
 #feeds .news {float: left;}
 #feeds .media {float: right;}
+#feeds .info {float: right;}
 #feeds .post-info {
     max-width:125px;
     margin:0px;

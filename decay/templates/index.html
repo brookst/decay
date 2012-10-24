@@ -11,10 +11,10 @@
 </section>
 {% endif %}
 
-{% if articles %}
+{% if SHOW_FEEDS %}
 <section id="feeds" class="body">
 {% for category, cat_articles in categories %}
-{% if category.name in ["News", "Media"] and cat_articles %}
+{% if category.name in ["News",] and cat_articles %}
 <div id="{{ category.name.lower() }}" class="{{ category.name.lower() }}">
 <h2><a href="{{ category.url }}">{{ category.name }}</a></h2>
 <hr />
@@ -34,6 +34,28 @@
         {{ article.summary }}
     </article>
 {% endfor %}
+</div>
+{% endif %}
+{% endfor %}
+{% for page in pages %}
+{% if "Info" == page.title %}
+<div id="{{ page.title.lower() }}" class="{{ page.title.lower() }}">
+<h2 style="text-align:right;">
+                {% if DISPLAY_PAGES_ON_MENU %}
+                {% for this in PAGES %}
+                    <a href="{{ SITEURL }}/{{ this.url }}">{{ this.title }}</a>
+                {% endfor %}
+                {% endif %}
+                {% for cat, null in categories %}
+                    <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+                {% endfor %}
+                </h2>
+<!---<h2 style="text-align:right;">{{ page.title }}</h2>-->
+<hr />
+    <article>
+        {% if not loop.first %}<hr />{% endif %}
+        {{ page.content }}
+    </article>
 </div>
 {% endif %}
 {% endfor %}
