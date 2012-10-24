@@ -3,13 +3,12 @@
 <head>
         <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-        <meta http-equiv="content-language" content="en">
         {% if TWITTER_USERNAME %}
         <meta name="twitter:site" content="{{ TWITTER_USERNAME }}">
         {% endif %}
         <link rel="canonical" href="{{ SITEURL }}">
         {% assets filters="cssmin", output="css/style.min.css", "css/reset.css", "css/typogrify.css", "css/main.css", "http://fonts.googleapis.com/css?family=Dorsa&subset=latin", "http://fonts.googleapis.com/css?family=Open+Sans:400,600" %}
-        <link rel="stylesheet" href="/theme/css/style.min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/style.min.css">
         {% endassets %}
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ SITEURL }}/theme/images/icon-144.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ SITEURL }}/theme/images/icon-114.png">
@@ -38,7 +37,8 @@
 <body id="index" class="home">
         <header id="banner" class="body">
 	{% block nav %}
-                <a id="topbar" href="{{ SITEURL }}"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width:920px;height:420px;"></a>
+<a id="topbar" href="{{ SITEURL }}"> 
+<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:22%"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:22%"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:22%"></a>
                 <nav><ul>
                 {% for title, link in MENUITEMS %}
                     <li {% if page %}{% if title == "Main" %}{% if page.title == "skoorb" %}class="active"{% endif %}{% endif %}{% endif %}><a href="{{ link }}">{{ title }}</a></li>
@@ -61,9 +61,8 @@
         {% block content %}
         {% endblock %}
         <section id="extras" class="body">
-        <center>
 	{% include 'credits.html' %}
-        </center>
+	{% include 'copyright.html' %}
         </section><!-- /#extras -->
 
 {% include 'disqus_script.html' %}

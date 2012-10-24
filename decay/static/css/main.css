@@ -3,14 +3,16 @@
 body {
     background: #000000;
     background-image: url('../images/backdrop.jpg');
-    background-position:center top; 
+    background-position: center top; 
     background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 1280px ! important;
     color: #565b4b;
     font-size: 87.5%; /* Base font size: 14px */
     font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.429;
     margin: auto auto;
-    padding: 0 20px;
+    padding: 0 60px;
     text-align: center;
 }
 
@@ -128,8 +130,8 @@ aside, nav, article, figure {
 
 /***** Layout *****/
 .body {clear: both; margin: 0 auto;
-    min-width: 900px;
-    max-width: 1240px;
+    min-width: 760px;
+    max-width: 1640px;
 }
 img.right, figure.right {float: right; margin: 0 0 2em 2em;}
 img.left, figure.left {float: left; margin: 0 2em 2em 0;}
@@ -172,8 +174,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	margin: 0 auto 2em auto;
 	padding: 0;
 	text-align: center;
-        min-width: 900px;
-        max-width: 1240px;
+        min-width: 760px;
+        max-width: 1640px;
 	
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -181,8 +183,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 }
 
 #banner nav ul {list-style: none; margin: 0 auto;
-    min-width: 900px;
-    max-width: 1240px;
+    min-width: 760px;
+    max-width: 1640px;
 }
 #banner nav li {float: left; display: inline; margin: 0;}
 
@@ -214,13 +216,14 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	Featured
 *****************/
 #featured {
-        text-align: left;
+    text-align: justify;
+    text-justify: inter-word;
 	background: #000;
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px;
-	min-width: 860px;
-	max-width: 1200px;
+	min-width: 760px;
+	max-width: 1600px;
 	
 	border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -245,13 +248,14 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	Body
 *****************/
 #content {
-        text-align: left;
+    text-align: justify;
+    text-justify: inter-word;
 	background: #000;
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px 20px;
-	min-width: 860px;
-	max-width: 1200px;
+	min-width: 760px;
+	max-width: 1600px;
 	
 	border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -259,7 +263,7 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 }
 
 .body img {
-      max-width: 860px;
+/*      max-width: 860px;*/
 }
 
 .body iframe {
@@ -277,8 +281,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px 20px;
-	min-width: 860px;
-	max-width: 1200px;
+	min-width: 760px;
+	max-width: 1600px;
 }
 
 #links span {
@@ -292,8 +296,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 }
 #links a, #links h1 {
     display: inline;
-    width: 279px;
-    height: 2em;
+    width: 220px;
+    height: 44px;
     text-align: center;
     margin-left: auto;
     margin-right:auto;
@@ -305,7 +309,7 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
     display: block;
     text-decoration: none;
     background-color: transparent;
-    opacity: 0.45;
+    opacity: 0.5;
     -moz-transition: opacity 0.75s 0s linear;
     -webkit-transition: opacity 0.75s 0s linear;
     -o-transition: opacity 0.75s 0s linear;
@@ -338,10 +342,10 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
     transition: opacity 0.75s 0s linear;
 }
 #links a[href*='facebook.com'] {
-    background-image: url('../images/facebookwhite.png');
+    background-image: url('../images/facebookgreen.png');
 }
 #links a[href*='twitter.com'] {
-    background-image: url('../images/twitterwhite.png');
+    background-image: url('../images/twittergreen.png');
 }
 
 /*
@@ -353,8 +357,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	overflow: hidden;
 	padding: 20px 20px;
 	margin: 0px auto;
-	min-width: 860px;
-	max-width: 1200px;
+	min-width: 760px;
+	max-width: 1600px;
 	
 	border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -366,25 +370,25 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 *****************/
 .credits {
     font-family: 'Dorsa', 'Helvetica Narrow', 'Arial Narrow', Arial, sans-serif;
-    font-size: 43px;
-    font-stretch: ultra-condensed;
-    line-height: 45px;
+    font-size: 4em;/*43px;*/
+/*    font-stretch: ultra-condensed;*/
+    line-height: 0.8em;/*45px;*/
     padding: 0;
     margin-left:auto;
     margin-right:auto;
 /*    width:70%;*/
 }
-.credits .nobreak {
+#credits .nobreak {
     display: inline-block;
     white-space:nowrap;
 }
 
-.credits .lower {
+#credits .lower {
     line-height: 0.8em;
     padding: 0;
     text-align:right;
     display: inline-block;
-    font-size: 20px;
+    font-size: 0.47em;/*20px;*/
 }
 #credits {
 	/*font-family: 'Open Sans Condensed', sans-serif;*/
@@ -402,6 +406,19 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 }
+
+/*
+	Copyright
+*****************/
+credits {
+    font-size: 0.5em;/*43px;*/
+/*    font-stretch: ultra-condensed;*/
+    padding: 0;
+    margin-left:auto;
+    margin-right:auto;
+/*    width:70%;*/
+}
+
 
 /*
 	Extras
@@ -428,7 +445,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 
 /* Feeds */
 #feeds div {
-    text-align: left;
+    text-align: justify;
+    text-justify: inter-word;
 	width: 49%;
 }
 #feeds img {
@@ -460,7 +478,7 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	overflow: hidden;
 	padding: 20px;
 	text-align: left;
-	width: 860px;
+	width: 760px;
 	
 	border-radius: 10px;
 	-moz-border-radius: 10px;

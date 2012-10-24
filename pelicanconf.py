@@ -3,8 +3,8 @@
 
 SITENAME = u"DECAY"
 SITEURL = '//lhcz.skoorb.net'
-TWITTER_USERNAME = ""
-BG_IMAGE = '../images/background-logo-soon-higher.png'
+TWITTER_USERNAME = u"@decayfilm"
+BG_IMAGE = '../images/website_BG2.jpg'
 AUTHOR = u"Decay"
 
 THEME = "decay"
@@ -18,11 +18,11 @@ TYPOGRIFY = True
 RELATIVE_URLS = False
 DISPLAY_PAGES_ON_MENU = True
 MENUITEMS = (('Decay', SITEURL),)
-PAGE_DIR = '/pages'
-PAGE_URL = '/pages/{slug}.html'
-PAGE_SAVE_AS = '/pages/{slug}.html'
-PAGE_LANG_URL = '/pages/{slug}-{lang}.html'
-PAGE_LANG_SAVE_AS = '/pages/{slug}-{lang}.html'
+#PAGE_DIR = '/pages/'
+#PAGE_URL = '/pages/{slug}.html'
+#PAGE_SAVE_AS = '/pages/{slug}.html'
+#PAGE_LANG_URL = '/pages/{slug}-{lang}.html'
+#PAGE_LANG_SAVE_AS = '/pages/{slug}-{lang}.html'
 
 ARTICLE_URL = '/{date:%Y}/{slug}.html'
 ARTICLE_SAVE_AS = '/{date:%Y}/{slug}.html'
@@ -33,6 +33,6 @@ CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 STATIC_PATHS = ['images','files']
 
 # Social widget
-SOCIAL = (('Facebook', 'http://www.facebook.com'),
-          ('Twitter', 'http://www.twitter.com'),)
+SOCIAL = (('Facebook', 'http://www.facebook.com/decayfilm'),
+          ('Twitter', 'http://www.twitter.com/decayfilm'),)
 
