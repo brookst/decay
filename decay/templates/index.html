@@ -23,7 +23,7 @@
         {% if not loop.first %}<hr />{% endif %}
         <h3 class="summary-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
         <div class="post-info">
-            {% if article.author and not article.author == AUTHOR %}
+            {% if article.author %}
             <address class="vcard author">
             By <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
             </address>
@@ -31,7 +31,7 @@
             <abbr class="published" title="{{ article.date.isoformat() }}">{{ article.date.strftime("%a %d. %B") }}</abbr><br/>
             {% if DISQUS_SITENAME %}<a href="{{ SITEURL }}/{{ article.url }}#disqus_thread">comments</a>{% endif %}
         </div>
-        {{ article.summary }}
+        {{ article.content }}
     </article>
 {% endfor %}
 </div>
@@ -43,11 +43,13 @@
 <h2 style="text-align:right;">
                 {% if DISPLAY_PAGES_ON_MENU %}
                 {% for this in PAGES %}
-                    <a href="{{ SITEURL }}/{{ this.url }}">{{ this.title }}</a>
+                    <a href="{{ SITEURL }}/{{ this.url }}">{{ this.title }}</a>{% if not loop.last %} | {%endif %}
                 {% endfor %}
                 {% endif %}
                 {% for cat, null in categories %}
-                    <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+                  {% if not cat.name == "News" %}
+                    <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>{% if not loop.last %} | {%endif %}
+                  {% endif %}
                 {% endfor %}
                 </h2>
 <!---<h2 style="text-align:right;">{{ page.title }}</h2>-->

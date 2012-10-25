@@ -6,6 +6,14 @@
         {% if TWITTER_USERNAME %}
         <meta name="twitter:site" content="{{ TWITTER_USERNAME }}">
         {% endif %}
+
+        {% for page in pages %}
+        {% if "Info" == page.title %}
+        <meta name="description" content="{{ page.content }}">
+        <meta name="keywords" content="{% for tag in page.tags %}{% if not loop.first %},{% endif %}{{ tag.name }}{% endfor %}">
+        {% endif %}
+        {% endfor %}
+
         <link rel="canonical" href="{{ SITEURL }}">
         {% assets filters="cssmin", output="css/style.min.css", "css/reset.css", "css/typogrify.css", "css/main.css", "http://fonts.googleapis.com/css?family=Dorsa&subset=latin", "http://fonts.googleapis.com/css?family=Open+Sans:400,600" %}
         <link rel="stylesheet" type="text/css" href="/theme/css/style.min.css">
