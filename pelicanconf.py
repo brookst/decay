@@ -3,7 +3,7 @@
 
 SITENAME = u"DECAY"
 SITEURL = '//lhcz.skoorb.net'
-TWITTER_USERNAME = u"@decayfilm"
+TWITTER_USERNAME = u"decayfilm"
 AUTHOR = u"Decay"
 SHOW_FEEDS = True   # Set whether to show feeds on the main page
 
