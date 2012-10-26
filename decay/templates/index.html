@@ -48,7 +48,7 @@
                 {% endif %}
                 {% for cat, null in categories %}
                   {% if not cat.name == "News" %}
-                    <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>{% if not loop.last %} | {%endif %}
+                    | <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
                   {% endif %}
                 {% endfor %}
                 </h2>
