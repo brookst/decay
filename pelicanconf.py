@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- #
 
 SITENAME = u"DECAY"
-SITEURL = 'http://lhcz.skoorb.net'
+SITEURL = 'http://decay.skoorb.net'
 TWITTER_USERNAME = u"decayfilm"
 AUTHOR = u"Decay"
 SHOW_FEEDS = True   # Set whether to show feeds on the main page
