@@ -6,7 +6,7 @@ body {
     background-position: center top; 
     background-repeat: no-repeat;
     background-size: contain;
-    min-height: 1280px ! important;
+    min-height: 934px ! important;
     color: #565b4b;
     font-size: 87.5%; /* Base font size: 14px */
     font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -72,6 +72,7 @@ ol {
 .post-info {
     float:right;
     margin-left:10px;
+    margin-right:10px;
     padding:5px;
     max-width:200px;
 }
@@ -263,13 +264,23 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 }
 
 .body img {
-/*      max-width: 860px;*/
+      max-width: 99%;
+}
+
+#gallery iframe {
+      width: 100%;
+      height: 200px;
+      margin-bottom:0em;
 }
 
 .body iframe {
       width: 100%;
       height: 495px;
-      margin-bottom:2em;
+      margin-bottom:0em;
+}
+
+.iframe {
+    margin-bottom: 0em;
 }
 
 
@@ -363,6 +374,9 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
+}
+#feeds article {
+	min-height: 90px;
 }
 
 /*
@@ -533,6 +547,23 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 		width: 190px;
 	}
 	
+	/* Gallery */
+	#gallery {list-style: none; margin: 0; text-align: center;}
+	#gallery .hentry {padding-left: 10px; position: relative; }
+	#gallery li {display:inline-block;margin-left:auto;margin-right: auto; width: 24%;}
+	#gallery a:hover, #gallery a:active {background-color: #000;}
+	#gallery div {text-align: left; display:inline-block; margin-left:auto;width:100%;margin-right: auto; vertical-align: middle; max-width: 100%;}
+	#gallery p {margin: 0px;}
+        .gallery-link {width: 100%; height: 100%}
+	
+	#gallery footer {
+		left: 10px;
+		position: relative;
+        float: left;
+		top: 0.5em;
+		width: 190px;
+	}
+
 	/* About the Author */
 	#about-author {
 		clear: both;

@@ -52,25 +52,22 @@
         {% endif %}
     {% endfor %}
 {% elif articles and category == "Media" %}
+    <section id="content" class="body">
+        <ol id="gallery" class="hfeed" start="{{ articles_paginator.per_page -1 }}">
+    {% for i in range(1) %}
     {% for article in articles_page.object_list %}        
-        <section id="content" class="body">
-          <ol id="gallery" class="hfeed" start="{{ articles_paginator.per_page -1 }}">
-            <li><article class="hentry">    
-                <header>
-                    <h1><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-                           title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                {% include 'article_infos.html' %}
-                {{ article.summary }}
-                <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">read more</a>
-                {% include 'comments.html' %}
-                </div><!-- /.entry-content -->
-            </article></li>
-          </ol>
-        </section>
+            <li>
+            <div>
+            <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}">
+            {% for tag in article.tags %}
+            {% if tag.name.lower() == "video" %}<h1>{{ article.title|striptags }}</h1>{% endif %}
+            {% endfor %}
+            {{ ' '.join(article.content.split('\n')[0:1]) }}</a></div>
+            </li>
     {% endfor %}
+    {% endfor %}
+        </ol>
+    </section>
 {% else %}
 <section id="content" class="body">    
 <h2>Pages</h2>
