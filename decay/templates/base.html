@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
         <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         {% if TWITTER_USERNAME %}
         <meta name="twitter:site" content="{{ TWITTER_USERNAME }}">
         {% endif %}
+        <meta property="og:title" content="DECAY" />
+        <meta property="og:type" content="video.movie" />
+        <meta property="og:url" content="http://www.decayfilm.com" />
+        <meta property="og:image" content="http://www.decayfilm.com/theme/images/decay_thumb.png" />
+        <meta property="og:site_name" content="DECAY" />
+        <meta property="og:video" content="http://www.youtube.com/v/luNueXoAw3I" />
 
         {% for page in pages %}
         {% if "Info" == page.title %}
-        <meta name="description" content="{{ page.content }}">
+        <meta property="og:description" content="{{ page.content|striptags }}">
+        <meta property="fb:app_id" content="488315411201396" />
+        <meta property="fb:admins" content="61412881" />
+        <meta property="fb:admins" content="40900178" />
+        <meta property="fb:admins" content="752019133" />
+        <meta property="fb:admins" content="524175763" />
+        <meta name="description" content="{{ page.content|striptags }}">
         <meta name="keywords" content="{% for tag in page.tags %}{% if not loop.first %},{% endif %}{{ tag.name }}{% endfor %}">
         {% endif %}
         {% endfor %}
@@ -54,18 +66,21 @@
         <header id="banner" class="body">
 	{% block nav %}
 <a id="topbar" href="{{ SITEURL }}"> 
-<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:22%"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:22%"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:22%"></a>
+<!---<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:22%"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:22%"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:22%"></a>
+<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:400px;height:auto;"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:400px;height:auto;">--><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:850px;height:400px;"></a>
                 <nav><ul>
                 {% for title, link in MENUITEMS %}
                     <li {% if page %}{% if title == "Main" %}{% if page.title == "skoorb" %}class="active"{% endif %}{% endif %}{% endif %}><a href="{{ link }}">{{ title }}</a></li>
                 {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU %}
                 {% for this in PAGES %}
+                  {% if this.title != "Info" %}
                     {% if page %}
                         <li {% if this.title == page.title %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ this.url }}">{{ this.title }}</a></li>
                     {% else %}
                         <li><a href="{{ SITEURL }}/{{ this.url }}">{{ this.title }}</a></li>
                     {% endif %}
+                  {% endif %}
                 {% endfor %}
                 {% endif %}
                 {% for cat, null in categories %}

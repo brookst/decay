@@ -1,11 +1,89 @@
 {% extends "base.html" %}
 {% block title %}DECAY{% endblock %}
 {% block nav %}
-<a id="topbar" href="{{ SITEURL }}">
-<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:24%"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:24%"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:24%"></a>
+<!--<a id="topbar" href="{{ SITEURL }}">
+<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:24%"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:24%"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Decay" style="width:100%;height:auto;max-width:24%"></a>-->
 {% endblock %}
 {% block content %}
-<iframe src="http://player.vimeo.com/video/52130888?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;color=aaaa33" width="800" height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<div style="margin-left:auto;margin-right:auto;width:711px;height:400px;border:1px;border-color:#f00;padding: -1px -1px -1px -1px;">
+<a id="video-play" href="" onclick="player.playVideo(); splashClick(); return false;"><img id="video-splash" src="/static/images/trailer-cover.jpg" alt="Decay Trailer" style="position:absolute;width:712px;height;400px"></a>
+<div id="player"></div>
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+      tag.src = "//www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          playerVars: {
+            wmode: "opaque",
+            'hd': 1,
+            'fs': 1,
+            'rel': 0,
+            'modestbranding': true,
+          },
+          height: '400',
+          width: '711',
+          videoId: 'luNueXoAw3I',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+          //playerVars: {
+                        //'hd': 1,
+                        //'rel': 0,
+                        //'fs': 1,
+          //          },
+          //console.debug(playerVars);
+        });
+      document.getElementById("player").setAttribute('webkitAllowFullScreen', 'true');
+      document.getElementById("player").setAttribute('mozAllowFullScreen', 'true');
+      }
+function fadeInOut(obj, startValue, endValue) {
+    var t = (startValue < endValue) ? 0 : 2;
+    var fps = window.setInterval(function() {
+            if (t >= endValue) {
+                obj.style.opacity = t;
+                obj.style.filter = "alpha(opacity = " + (t * 25) + ")";
+                t -= 0.05;
+            } else {
+                t = 1;
+                obj.hidden = true;
+                window.clearInterval(fps);
+            }
+    }, 8);
+}
+      function splashClick() {
+          var splash = document.getElementById("video-splash");
+          fadeInOut(splash, 4, 0);
+          //splash.hidden = true;
+          //splash.style.WebkitTransition = 'opacity 1s';
+          //splash.style.MozTransition = 'opacity 1s';
+          //splash.style.Transition = 'opacity 1s';
+          return false;
+      }
+      //splash.onclick = function() { player.playVideo(); };
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.stopVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      function onPlayerStateChange(event) {
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    </script>
+</div>
 {% if SOCIAL %}
 <section id="links" class="body">
 {% for name, link in SOCIAL %}<span id="{{ name }}"><a href="{{ link }}"></a></span>{% endfor %}
@@ -31,7 +109,7 @@
             </address>
             {% endif %}
                     <a href="http://twitter.com/share" class="twitter-share-button" data-text="{{ article.title|striptags }}" data-url="{{ SITEURL }}{{ article.url }}" data-count="horizontal" data-via="{{TWITTER_USERNAME}}">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-                    <span class="fb-like" data-href="{{ SITEURL }}{{ article.url }}" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false" style="vertical-align:top;"></span>
+                    <div class="fb-like" data-href="http://www.facebook.com/decayfilm" data-send="true" data-layout="button_count" data-width="90" data-show-faces="false"></div>
             {% if DISQUS_SITENAME %}<a href="{{ SITEURL }}/{{ article.url }}#disqus_thread">comments</a>{% endif %}
         </div>
         {{ article.content }}
@@ -46,19 +124,20 @@
 <h2 style="text-align:right;">
                 {% if DISPLAY_PAGES_ON_MENU %}
                 {% for this in PAGES %}
-                    <a href="{{ SITEURL }}/{{ this.url }}">{{ this.title }}</a>{% if not loop.last %} | {%endif %}
+                  {% if this.title != "Info" %}
+                    <a href="{{ SITEURL }}/{{ this.url }}">{{ this.title }}</a> | 
+                  {% endif %}
                 {% endfor %}
                 {% endif %}
                 {% for cat, null in categories %}
                   {% if not cat.name == "News" %}
-                    | <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+                    <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>{% if not loop.last %} | {% endif %}
                   {% endif %}
                 {% endfor %}
                 </h2>
-<!---<h2 style="text-align:right;">{{ page.title }}</h2>-->
-<hr />
+<!--<hr />-->
     <article>
-        {% if not loop.first %}<hr />{% endif %}
+        <hr />
         {{ page.content }}
     </article>
 </div>

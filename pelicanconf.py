@@ -2,17 +2,18 @@
 # -*- coding: utf-8 -*- #
 
 SITENAME = u"DECAY"
-SITEURL = 'http://lhcz.skoorb.net'
+SITEURL = 'http://decay.skoorb.net'
 TWITTER_USERNAME = u"decayfilm"
 AUTHOR = u"Decay"
 SHOW_FEEDS = True   # Set whether to show feeds on the main page
+YOUTUBE_ID = "luNueXoAw3I"
 
 THEME = "decay"
 
 TIMEZONE = 'Europe/London'
 DEFAULT_LANG = 'en'
 
-DEFAULT_PAGINATION = 5
+DEFAULT_PAGINATION = 4
 WEBASSETS = True
 TYPOGRIFY = True
 RELATIVE_URLS = False

@@ -54,17 +54,20 @@
 {% elif articles and category == "Media" %}
     <section id="content" class="body">
         <ol id="gallery" class="hfeed" start="{{ articles_paginator.per_page -1 }}">
-    {% for i in range(1) %}
-    {% for article in articles_page.object_list %}        
+    {% for article in articles %}        
+            {% for tag in article.tags if tag.name.lower() == "video" %}
+            <!--
+            <h1>{{ article.title|striptags }}</h1>
+            {% endfor %}
             <li>
             <div>
             <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}">
-            {% for tag in article.tags %}
-            {% if tag.name.lower() == "video" %}<h1>{{ article.title|striptags }}</h1>{% endif %}
-            {% endfor %}
-            {{ ' '.join(article.content.split('\n')[0:1]) }}</a></div>
+            {{ ' '.join(article.content.split('\n')[0:1]) }}
+            </a></div>
             </li>
-    {% endfor %}
+            {% for tag in article.tags if tag.name.lower() == "video" %}
+            -->
+            {% endfor %}
     {% endfor %}
         </ol>
     </section>
