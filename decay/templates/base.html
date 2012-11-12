@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
-<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# video: http://ogp.me/ns/video# website: http://ogp.me/ns/website#">
         <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         {% if TWITTER_USERNAME %}
         <meta name="twitter:site" content="{{ TWITTER_USERNAME }}">
         {% endif %}
+{% if page %}
+        <meta property="og:url" content="{{ SITEURL }}{{ page.url }}" />
+        <meta property="og:title" content="{{ page.title|striptags }}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="{{ page.content|striptags }}">
+{% elif article %}
+        <meta property="og:url" content="{{ SITEURL }}{{ article.url }}" />
+        <meta property="og:title" content="{{ article.title|striptags }}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="{{ article.summary|striptags }}">
+{% else %}
+        <meta property="og:url" content="{{ SITEURL }}" />
         <meta property="og:title" content="DECAY" />
-        <meta property="og:type" content="video.movie" />
-        <meta property="og:url" content="http://www.decayfilm.com" />
-        <meta property="og:image" content="http://www.decayfilm.com/theme/images/decay_thumb.png" />
-        <meta property="og:site_name" content="DECAY" />
-        <meta property="og:video" content="http://www.youtube.com/v/luNueXoAw3I" />
-
+        <meta property="og:type" content="website" />
         {% for page in pages %}
         {% if "Info" == page.title %}
         <meta property="og:description" content="{{ page.content|striptags }}">
+        <meta name="description" content="{{ page.content|striptags }}">
+        <meta name="keywords" content="{% for tag in page.tags %}{% if not loop.first %},{% endif %}{{ tag.name }}{% endfor %}">
+        {% endif %}
+        {% endfor %}
+{% endif %}
+        <meta property="og:video" content="http://www.youtube.com/v/luNueXoAw3I" />
+        <meta property="og:site_name" content="DECAY" />
+        <meta property="og:image" content="http://www.decayfilm.com/theme/images/decay_thumb.png" />
         <meta property="fb:app_id" content="488315411201396" />
         <meta property="fb:admins" content="61412881" />
         <meta property="fb:admins" content="40900178" />
         <meta property="fb:admins" content="752019133" />
         <meta property="fb:admins" content="524175763" />
-        <meta name="description" content="{{ page.content|striptags }}">
-        <meta name="keywords" content="{% for tag in page.tags %}{% if not loop.first %},{% endif %}{{ tag.name }}{% endfor %}">
-        {% endif %}
-        {% endfor %}
 
-        <link rel="canonical" href="{{ SITEURL }}">
         {% assets filters="cssmin", output="css/style.min.css", "css/reset.css", "css/typogrify.css", "css/main.css", "http://fonts.googleapis.com/css?family=Dorsa&subset=latin", "http://fonts.googleapis.com/css?family=Open+Sans:400,600" %}
         <link rel="stylesheet" type="text/css" href="/theme/css/style.min.css">
         {% endassets %}

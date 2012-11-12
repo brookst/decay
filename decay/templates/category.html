@@ -9,7 +9,7 @@
         {% if loop.first and not articles_page.has_previous() %}
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1> 
+                    <h1 class="entry-title"><a href="{{ SITEURL }}{{ article.url }}">{{ article.title }}</a></h1>
                     {% include 'article_infos.html' %}{{ article.content }}{% include 'comments.html' %}
                 </article>
                 {% if loop.length == 1 %}
@@ -30,7 +30,7 @@
             {% endif %}
             <li><article class="hentry">    
                 <header>
-                    <h1><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+                    <h1><a href="{{ SITEURL }}{{ article.url }}" rel="bookmark"
                            title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
                 </header>
                 
@@ -61,7 +61,7 @@
             {% endfor %}
             <li>
             <div>
-            <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}">
+            <a href="{{ SITEURL }}{{ article.url }}" title="{{ article.title|striptags }}">
             {{ ' '.join(article.content.split('\n')[0:1]) }}
             </a></div>
             </li>

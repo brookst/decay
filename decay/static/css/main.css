@@ -386,7 +386,6 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 #feeds {
 	background: #000;
 	margin-bottom: 2em;
-	overflow: hidden;
 	padding: 20px 20px;
 	margin: 0px auto;
 	min-width: 760px;

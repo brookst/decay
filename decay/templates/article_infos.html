@@ -9,7 +9,7 @@
         {% endif %}
 <p>{% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">get the pdf</a>{% endif %}</p>
                     <a href="http://twitter.com/share" class="twitter-share-button" data-text="{{ article.title|striptags }}" data-url="{{ SITEURL }}{{ article.url }}" data-counturl="{{ SITEURL }}{{ article.url }}" data-count="horizontal" data-via="{{TWITTER_USERNAME}}">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-                    <div class="fb-like" data-href="http://www.facebook.com/decayfilm" data-send="true" data-layout="button_count" data-width="90" data-show-faces="false"></div>
+                    <div class="fb-like" data-href="decayfilm.com/{{ article.url }}" data-send="true" data-layout="button_count" data-width="90" data-show-faces="false"></div>
 {% include 'taglist.html' %}
 {% include 'translations.html' %}
 </footer><!-- /.post-info -->
