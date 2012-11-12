@@ -328,6 +328,11 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
     margin-right: auto;
     font-size: 2em;
 }
+
+#Like-Button {
+    width: 49px ! important;
+}
+
 #links a, #links h1 {
     display: inline;
     width: 220px;
