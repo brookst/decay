@@ -7,7 +7,7 @@ body {
     background-repeat: no-repeat;
 /*    background-size: contain; */
     min-height: 1515px ! important;
-    color: #565b4b;
+    color: #757C65;
     font-size: 87.5%; /* Base font size: 14px */
     font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.429;
@@ -17,12 +17,12 @@ body {
 }
 
 /* Headings */
-h1 {font-size: 2em }
-h2 {font-size: 1.571em}	/* 22px */
-h3 {font-size: 1.429em}	/* 20px */
-h4 {font-size: 1.286em}	/* 18px */
-h5 {font-size: 1.143em}	/* 16px */
-h6 {font-size: 1em}		/* 14px */
+h1 {font-size: 2em; color: #959C85}
+h2 {font-size: 1.571em; color: #959C85}	/* 22px */
+h3 {font-size: 1.429em; color: #959C85}	/* 20px */
+h4 {font-size: 1.286em; color: #959C85}	/* 18px */
+h5 {font-size: 1.143em; color: #959C85}	/* 16px */
+h6 {font-size: 1em; color: #959C85}	/* 14px */
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 600;
         font-family: 'Open Sans', sans-serif;
