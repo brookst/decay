@@ -18,6 +18,7 @@ body {
 
 /* Headings */
 h1 {font-size: 2em; color: #959C85}
+#logo-banner {font-size: 2em;}
 h2 {font-size: 1.571em; color: #959C85}	/* 22px */
 h3 {font-size: 1.429em; color: #959C85}	/* 20px */
 h4 {font-size: 1.286em; color: #959C85}	/* 18px */
@@ -333,10 +334,15 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
     width: 49px ! important;
 }
 
+.fb_iframe_widget {
+    text-align:left;
+    margin-left: 0px;
+}
+
 #links a, #links h1 {
     display: inline;
-    width: 220px;
-    height: 44px;
+    width: 126px;
+    height: 42px;
     text-align: center;
     margin-left: auto;
     margin-right:auto;
@@ -357,28 +363,28 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 }
 
 #links a[href*='facebook.com']:link, #links a[href*='facebook.com']:visited {
-    background-image: url('../images/facebookgreen.png');
+    background-image: url('../images/facebook_button.png');
     -moz-transition: background-image 0.25s 0s linear;
     -webkit-transition: background-image 0.25s 0s linear;
     -o-transition: background-image 0.25s 0s linear;
     transition: background-image 0.25s 0s linear;
 }
 #links a[href*='twitter.com']:link, #links a[href*='twitter.com']:visited {
-    background-image: url('../images/twittergreen.png');
+    background-image: url('../images/twitter_button.png');
     -moz-transition: background-image 0.25s 0s linear;
     -webkit-transition: background-image 0.25s 0s linear;
     -o-transition: background-image 0.25s 0s linear;
     transition: background-image 0.25s 0s linear;
 }
 #links a[href*='facebook.com']:hover, #links a[href*='facebook.com']:active {
-    background-image: url('../images/facebookgreen.png');
+    background-image: url('../images/facebook_button.png');
     -moz-transition: background-image 0.75s 0s linear;
     -webkit-transition: background-image 0.75s 0s linear;
     -o-transition: background-image 0.75s 0s linear;
     transition: background-image 0.75s 0s linear;
 }
 #links a[href*='twitter.com']:hover, #links a[href*='twitter.com']:active {
-    background-image: url('../images/twittergreen.png');
+    background-image: url('../images/twitter_button.png');
     -moz-transition: background-image 0.75s 0s linear;
     -webkit-transition: background-image 0.75s 0s linear;
     -o-transition: background-image 0.75s 0s linear;
