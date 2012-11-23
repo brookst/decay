@@ -27,8 +27,8 @@ h6 {font-size: 1em; color: #959C85}	/* 14px */
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 600;
         font-family: 'Open Sans', sans-serif;
-	line-height: 1.1;
-	margin-bottom: .8em;
+	line-height: 1.5;
+	margin-bottom: .1em;
 }
 h3, h4, h5, h6 { margin-top: .8em; }
 hr { margin: 0px 0px;
@@ -144,6 +144,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 .column li { list-style: none; }
 .credit { display: inline-block; width: 180px; text-align:left; }
 .name { vertical-align: top; }
+
+.fixwidth { display: inline-block; width: 180px; text-align:left; }
 
 
 /*
@@ -334,9 +336,10 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
     width: 49px ! important;
 }
 
-.fb_iframe_widget {
-    text-align:left;
-    margin-left: 0px;
+.fb-like-box.fb_iframe_widget *
+{
+        text-align: left !important;
+        margin-left: 0px;
 }
 
 #links a, #links h1 {

@@ -2,7 +2,7 @@
 {% block content_title %}{% endblock %}
 {% block title %}{{ SITENAME }} - {{ category }}{% endblock %}
 {% block content %}        
-{% if articles and not category == "Media" %}
+{% if articles and not category == "Media" and not category == "Events" %}
     {% for article in articles_page.object_list %}        
 
         {# First item #}
@@ -70,6 +70,20 @@
             {% endfor %}
     {% endfor %}
         </ol>
+    </section>
+{% elif articles and category == "Events" %}
+    <section id="content" class="body">
+      <h1>Events</h1>
+        Events showing <b>Decay</b> are listed here. Click through for event details. For further information; email <a href="mailto:screenings@decayfilm.com">screenings@decayfilm.com</a>.
+        <ul id="events" class="hfeed" start="{{ articles_paginator.per_page -1 }}">
+    {% for article in articles|reverse %}
+            <li>
+            <div><a href="{{ SITEURL }}{{ article.url }}" title="{{ article.title|striptags }}">
+            <span class="fixwidth">{{ article.title|striptags }}</span><span class="tab">{{ article.locale_date }}</span>
+            </a></div>
+            </li>
+    {% endfor %}
+        </ul>
     </section>
 {% else %}
 <section id="content" class="body">    
