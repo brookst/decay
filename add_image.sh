@@ -7,7 +7,7 @@
 EXENAME=${0##*/}
 
 function usage() {
-    echo "usage: ${EXENAME} [OPTION] filename"
+    echo "usage: ${EXENAME} [OPTION] filename [new filename]"
     echo "Add an image to content/images with medium and thumbnail copys,"
     echo "then adding a markdown page for the image to content/Media"
     echo ""
@@ -35,6 +35,9 @@ fi
 
 IMAGENAME=${1##*/}
 IMAGEEXT=${IMAGENAME##*.}
+if [ -n "$2" ]; then
+  IMAGENAME=$2
+fi
 IMAGENAME=${IMAGENAME%.*}
 PAGEFILE="content/Media/${IMAGENAME}.md"
 echo 
