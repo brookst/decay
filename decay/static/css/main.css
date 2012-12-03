@@ -146,8 +146,10 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 .name { vertical-align: top; }
 
 .tab-author { display: inline-block; width: 180px; text-align:left; }
-.tab-license { display: inline-block; width: 180px; text-align:left; vertical-align: top }
-.tab-type { vertical-align: top; }
+.tab-license { display: inline-block; width: 50px; text-align:left; vertical-align: top }
+.tab-type { display: inline-block; width: 80px; vertical-align: top; }
+.tab-description { display: inline-block; width: 180px; vertical-align: top; }
+.tab-title { vertical-align: top; }
 
 .fixwidth { display: inline-block; width: 180px; text-align:left; }
 
