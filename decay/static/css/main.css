@@ -18,7 +18,7 @@ body {
 
 /* Headings */
 h1 {font-size: 2em; color: #959C85}
-#logo-banner {font-size: 2em;}
+#logo-banner {font-size: 1.5em;}
 h2 {font-size: 1.571em; color: #959C85}	/* 22px */
 h3 {font-size: 1.429em; color: #959C85}	/* 20px */
 h4 {font-size: 1.286em; color: #959C85}	/* 18px */
@@ -134,8 +134,8 @@ aside, nav, article, figure {
 
 /***** Layout *****/
 .body {clear: both; margin: 0 auto;
-    min-width: 760px;
-    max-width: 1640px;
+/*    min-width: 760px;*/
+    max-width: 1280px;
 }
 img.right, figure.right {float: right; margin: 0 0 2em 2em;}
 img.left, figure.left {float: left; margin: 0 2em 2em 0;}
@@ -144,6 +144,12 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 .column li { list-style: none; }
 .credit { display: inline-block; width: 180px; text-align:left; }
 .name { vertical-align: top; }
+
+.tab-dl-formatsm { display: inline-block; width: 70px; text-align:left; vertical-align:top }
+.tab-dl-formatlg { display: inline-block; width: 180px; text-align:left; vertical-align:top }
+.tab-dl-link { display: inline-block; width: 130px; text-align:left; vertical-align:top }
+.tab-dl-link2 { display: inline-block; width: 110px; text-align:left; vertical-align:top }
+.tab-dl-size { display: inline-block; text-align:left; vertical-align:top }
 
 .tab-author { display: inline-block; width: 180px; text-align:left; }
 .tab-license { display: inline-block; width: 50px; text-align:left; vertical-align: top }
@@ -192,8 +198,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	margin: 0 auto 2em auto;
 	padding: 0;
 	text-align: center;
-        min-width: 760px;
-        max-width: 1640px;
+/*        min-width: 800px;*/
+/*        max-width: 1640px;*/
 	
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -201,8 +207,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 }
 
 #banner nav ul {list-style: none; margin: 0 auto;
-    min-width: 760px;
-    max-width: 1640px;
+/*    min-width: 760px;*/
+/*    max-width: 1640px;*/
 }
 #banner nav li {float: left; display: inline; margin: 0;}
 
@@ -240,8 +246,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px;
-	min-width: 760px;
-	max-width: 1600px;
+/*        min-width: 760px;*/
+/*	max-width: 1600px;*/
 	
 	border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -271,8 +277,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	background: #000;
 	margin-bottom: 2em;
 	padding: 20px 20px;
-	min-width: 760px;
-	max-width: 1600px;
+/*        min-width: 760px;*/
+/*	max-width: 1600px;*/
 	
 	border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -324,8 +330,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px 20px;
-	min-width: 760px;
-	max-width: 1600px;
+/*        min-width: 760px;*/
+/*	max-width: 1600px;*/
 }
 
 #links span {
@@ -408,8 +414,8 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	margin-bottom: 2em;
 	padding: 20px 20px;
 	margin: 0px auto;
-	min-width: 760px;
-	max-width: 1600px;
+/*        min-width: 760px;*/
+/*	max-width: 1600px;*/
 	
 	border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -503,8 +509,32 @@ credits {
 #feeds div {
     text-align: justify;
     text-justify: inter-word;
-	width: 49%;
+    width: 49%;
 }
+
+.left-title {
+    text-align: left;
+}
+
+.right-title {
+    text-align: right;
+}
+
+@media only screen and (max-width: 937px ) {
+    body {
+        padding: 0 5%;
+    }
+    #feeds div {
+        width: 100%;
+    }
+    .left-title {
+        text-align: center;
+    }
+    .right-title {
+        text-align: center;
+    }
+}
+
 #feeds img {
     display: block;
     float: left;

@@ -53,6 +53,14 @@
     {% endfor %}
 {% elif articles and category == "Media" %}
     <section id="content" class="body">
+        <div id="media-taglist">
+          <h2 style="text-align:center">
+            <a href="/tag/still.html">Movie Stills</a> |
+            <a href="/tag/wallpaper.html">Wallpapers</a> |
+            <a href="/tag/poster.html">Posters</a>
+          </h2>
+        </div>
+        <p></p>
         <ol id="gallery" class="hfeed" start="{{ articles_paginator.per_page -1 }}">
     {% for article in articles %}        
             {% for tag in article.tags if tag.name.lower() == "video" %}
@@ -76,7 +84,17 @@
       <h1>Events</h1>
         Events showing <b>Decay</b> are listed here. Click through for event details. For further information; email <a href="mailto:screenings@decayfilm.com">screenings@decayfilm.com</a>.
         <ul id="events" class="hfeed" start="{{ articles_paginator.per_page -1 }}">
-    {% for article in articles|reverse %}
+    {% for article in articles|in_future|reverse %}
+            <li>
+            <div><a href="{{ SITEURL }}{{ article.url }}" title="{{ article.title|striptags }}">
+            <span class="fixwidth">{{ article.title|striptags }}</span><span class="tab">{{ article.locale_date }}</span>
+            </a></div>
+            </li>
+    {% endfor %}
+        </ul>
+        Previous events:
+        <ul id="events" class="hfeed" start="{{ articles_paginator.per_page -1 }}">
+    {% for article in articles|in_past %}
             <li>
             <div><a href="{{ SITEURL }}{{ article.url }}" title="{{ article.title|striptags }}">
             <span class="fixwidth">{{ article.title|striptags }}</span><span class="tab">{{ article.locale_date }}</span>

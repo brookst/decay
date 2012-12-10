@@ -2,9 +2,10 @@
 <html lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# video: http://ogp.me/ns/video# website: http://ogp.me/ns/website#">
         <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <link type="text/plain" rel="author" href="/humans.txt" />
         {% if TWITTER_USERNAME %}
-        <meta name="twitter:site" content="{{ TWITTER_USERNAME }}">
+        <meta name="twitter:site" content="{{ TWITTER_USERNAME }}" />
         {% endif %}
 {% if page %}
         <meta property="og:url" content="{{ SITEURL }}{{ page.url }}" />
